@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_QO_C8BwTEeaOIPl65G1Tcw" name="com.genmymodel.shoppingcart">
+  <eAnnotations xmi:id="_QO_C8RwTEeaOIPl65G1Tcw" source="genmymodel">
+    <details xmi:id="_QO_C8hwTEeaOIPl65G1Tcw" key="uuid" value="5dcbbd24-698d-4a0f-a473-5806a5ddacb7"/>
+    <details xmi:id="_QO_C8xwTEeaOIPl65G1Tcw" key="gmm-documentation" value="&lt;span style=&quot;line-height: 20px; font-size: 14.44px;&quot;>Online customer can browse or search items, view specific item, add it to shopping cart, view and update shopping cart, checkout. User can view shopping cart at any time.&lt;/span>"/>
+    <details xmi:id="_QO_C9BwTEeaOIPl65G1Tcw" key="author" value="..."/>
+    <details xmi:id="_QO_C9RwTEeaOIPl65G1Tcw" key="company" value="..."/>
+    <details xmi:id="_QO_C9hwTEeaOIPl65G1Tcw" key="namespace" value="NG2Sample.Commerce.ShoppingCart"/>
+  </eAnnotations>
+  <ownedComment xmi:id="_QO_C9xwTEeaOIPl65G1Tcw" body="This class diagram represents the entities and relations of an online shopping cart system. It's one of the possible designs for such a system.  Fork it to generate Java, SQL and more to get a usable implementation.  See also the activity diagram available in the tree structure.">
+    <eAnnotations xmi:id="_QO_C-BwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_C-RwTEeaOIPl65G1Tcw" key="uuid" value="_oozEAF2mEDCmZJZW1tvwBA"/>
+    </eAnnotations>
+  </ownedComment>
+  <packageImport xmi:id="_QO_C-hwTEeaOIPl65G1Tcw">
+    <eAnnotations xmi:id="_QO_C-xwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_C_BwTEeaOIPl65G1Tcw" key="uuid" value="25f89824-2c56-4950-a84a-06a651f49bf9"/>
+    </eAnnotations>
+    <importedPackage href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#/"/>
+  </packageImport>
+  <packageImport xmi:id="_QO_C_RwTEeaOIPl65G1Tcw">
+    <eAnnotations xmi:id="_QO_C_hwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_C_xwTEeaOIPl65G1Tcw" key="uuid" value="cdd8a7d7-ee54-4f7c-92dc-bbfb7a2a1c66"/>
+    </eAnnotations>
+    <importedPackage href="pathmap://GENMYMODEL_LIBRARIES/GenMyModelPrimitiveTypes.library.uml#/"/>
+  </packageImport>
+  <packagedElement xsi:type="uml:Enumeration" xmi:id="_QO_DABwTEeaOIPl65G1Tcw" name="UserState">
+    <eAnnotations xmi:id="_QO_DARwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_DAhwTEeaOIPl65G1Tcw" key="uuid" value="_xXnC4GcdEeKLcsEXbJ0TrA"/>
+      <details xmi:id="_QO_DAxwTEeaOIPl65G1Tcw" key="gmm-documentation" value=""/>
+    </eAnnotations>
+    <ownedLiteral xmi:id="_QO_DBBwTEeaOIPl65G1Tcw" name="New" classifier="_QO_DABwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_DBRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_DBhwTEeaOIPl65G1Tcw" key="uuid" value="_xXnC4WcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+    </ownedLiteral>
+    <ownedLiteral xmi:id="_QO_DBxwTEeaOIPl65G1Tcw" name="Active" classifier="_QO_DABwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_DCBwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_DCRwTEeaOIPl65G1Tcw" key="uuid" value="_xXnC4mcdEeKLcsEXbJ0TrA"/>
+        <details xmi:id="_QO_DChwTEeaOIPl65G1Tcw" key="gmm-documentation" value=""/>
+      </eAnnotations>
+    </ownedLiteral>
+    <ownedLiteral xmi:id="_QO_DCxwTEeaOIPl65G1Tcw" name="Banned" classifier="_QO_DABwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_DDBwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_DDRwTEeaOIPl65G1Tcw" key="uuid" value="_xXnp8GcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+    </ownedLiteral>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Enumeration" xmi:id="_QO_DDhwTEeaOIPl65G1Tcw" name="OrderStatus">
+    <eAnnotations xmi:id="_QO_DDxwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_DEBwTEeaOIPl65G1Tcw" key="uuid" value="_xXnp8WcdEeKLcsEXbJ0TrA"/>
+      <details xmi:id="_QO_DERwTEeaOIPl65G1Tcw" key="gmm-documentation" value=""/>
+    </eAnnotations>
+    <ownedLiteral xmi:id="_QO_DEhwTEeaOIPl65G1Tcw" name="New" classifier="_QO_DDhwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_DExwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_DFBwTEeaOIPl65G1Tcw" key="uuid" value="_xXnp8mcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+    </ownedLiteral>
+    <ownedLiteral xmi:id="_QO_DFRwTEeaOIPl65G1Tcw" name="Old" classifier="_QO_DDhwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_DFhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_DFxwTEeaOIPl65G1Tcw" key="uuid" value="_xXoRAGcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+    </ownedLiteral>
+    <ownedLiteral xmi:id="_QO_DGBwTEeaOIPl65G1Tcw" name="Shipped" classifier="_QO_DDhwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_DGRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qABwTEeaOIPl65G1Tcw" key="uuid" value="_xXoRAWcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+    </ownedLiteral>
+    <ownedLiteral xmi:id="_QO_qARwTEeaOIPl65G1Tcw" name="Delivered" classifier="_QO_DDhwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_qAhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qAxwTEeaOIPl65G1Tcw" key="uuid" value="_xXoRAmcdEeKLcsEXbJ0TrA"/>
+        <details xmi:id="_QO_qBBwTEeaOIPl65G1Tcw" key="gmm-documentation" value=""/>
+      </eAnnotations>
+    </ownedLiteral>
+    <ownedLiteral xmi:id="_QO_qBRwTEeaOIPl65G1Tcw" name="Closed" classifier="_QO_DDhwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_qBhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qBxwTEeaOIPl65G1Tcw" key="uuid" value="_xXoRA2cdEeKLcsEXbJ0TrA"/>
+        <details xmi:id="_QO_qCBwTEeaOIPl65G1Tcw" key="gmm-documentation" value=""/>
+      </eAnnotations>
+    </ownedLiteral>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Class" xmi:id="_QO_qCRwTEeaOIPl65G1Tcw" name="Customer">
+    <eAnnotations xmi:id="_QO_qChwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_qCxwTEeaOIPl65G1Tcw" key="uuid" value="_xXo4EGcdEeKLcsEXbJ0TrA"/>
+      <details xmi:id="_QO_qDBwTEeaOIPl65G1Tcw" key="gmm-documentation" value="Represents the webuser when he signs in."/>
+    </eAnnotations>
+    <ownedAttribute xmi:id="_QO_qDRwTEeaOIPl65G1Tcw" name="address">
+      <eAnnotations xmi:id="_QO_qDhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qDxwTEeaOIPl65G1Tcw" key="uuid" value="_xXo4EWcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//String"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qEBwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qERwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qEhwTEeaOIPl65G1Tcw" name="phone">
+      <eAnnotations xmi:id="_QO_qExwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qFBwTEeaOIPl65G1Tcw" key="uuid" value="_xXpfIGcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//String"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qFRwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qFhwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qFxwTEeaOIPl65G1Tcw" name="email">
+      <eAnnotations xmi:id="_QO_qGBwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qGRwTEeaOIPl65G1Tcw" key="uuid" value="_xXqGMGcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//String"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qGhwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qGxwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_QO_qHBwTEeaOIPl65G1Tcw" name="isVIP">
+      <eAnnotations xmi:id="_QO_qHRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qHhwTEeaOIPl65G1Tcw" key="uuid" value="_0oNyEE6tEDC_9oRZ23LB4Q"/>
+        <details xmi:id="_QO_qHxwTEeaOIPl65G1Tcw" key="gmm-documentation" value=""/>
+      </eAnnotations>
+      <ownedParameter xmi:id="_QO_qIBwTEeaOIPl65G1Tcw" direction="return">
+        <eAnnotations xmi:id="_QO_qIRwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_qIhwTEeaOIPl65G1Tcw" key="uuid" value="985d58bd-246a-467d-a9de-c41b5a5eba2b"/>
+        </eAnnotations>
+        <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_QO_qIxwTEeaOIPl65G1Tcw" name="sendSMS">
+      <eAnnotations xmi:id="_QO_qJBwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qJRwTEeaOIPl65G1Tcw" key="uuid" value="_lAp1MPQ5EDOWSrHIdZpQaQ"/>
+      </eAnnotations>
+      <ownedParameter xmi:id="_QO_qJhwTEeaOIPl65G1Tcw" name="returnParameter" isUnique="false" direction="return">
+        <eAnnotations xmi:id="_QO_qJxwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_qKBwTEeaOIPl65G1Tcw" key="uuid" value="_lApOIPQ5EDOWSrHIdZpQaQ"/>
+        </eAnnotations>
+        <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//Boolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_QO_qKRwTEeaOIPl65G1Tcw" name="parameter" type="_QO_qCRwTEeaOIPl65G1Tcw" isUnique="false">
+        <eAnnotations xmi:id="_QO_qKhwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_qKxwTEeaOIPl65G1Tcw" key="uuid" value="_pZRbQPQ5EDOWSrHIdZpQaQ"/>
+        </eAnnotations>
+      </ownedParameter>
+      <ownedParameter xmi:id="_QO_qLBwTEeaOIPl65G1Tcw" name="parameter2" isUnique="false">
+        <eAnnotations xmi:id="_QO_qLRwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_qLhwTEeaOIPl65G1Tcw" key="uuid" value="_BHhCUP43EDOkid9-vgaT8A"/>
+        </eAnnotations>
+        <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//String"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_QO_qLxwTEeaOIPl65G1Tcw" type="_QO_qMhwTEeaOIPl65G1Tcw" isUnique="false">
+        <eAnnotations xmi:id="_QO_qMBwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_qMRwTEeaOIPl65G1Tcw" key="uuid" value="_GdzmAP5BEDOkid9-vgaT8A"/>
+        </eAnnotations>
+        <name xsi:nil="true"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Class" xmi:id="_QO_qMhwTEeaOIPl65G1Tcw" name="Payment">
+    <eAnnotations xmi:id="_QO_qMxwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_qNBwTEeaOIPl65G1Tcw" key="uuid" value="_xXqtQGcdEeKLcsEXbJ0TrA"/>
+      <details xmi:id="_QO_qNRwTEeaOIPl65G1Tcw" key="gmm-documentation" value=""/>
+    </eAnnotations>
+    <ownedAttribute xmi:id="_QO_qNhwTEeaOIPl65G1Tcw" name="paidDate">
+      <eAnnotations xmi:id="_QO_qNxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qOBwTEeaOIPl65G1Tcw" key="uuid" value="_xXqtQWcdEeKLcsEXbJ0TrA"/>
+        <details xmi:id="_QO_qORwTEeaOIPl65G1Tcw" key="gmm-documentation" value=""/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://GENMYMODEL_LIBRARIES/GenMyModelPrimitiveTypes.library.uml#//Date"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qOhwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qOxwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qPBwTEeaOIPl65G1Tcw" name="total">
+      <eAnnotations xmi:id="_QO_qPRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qPhwTEeaOIPl65G1Tcw" key="uuid" value="_xXrUUGcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://GENMYMODEL_LIBRARIES/GenMyModelPrimitiveTypes.library.uml#//Real"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qPxwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qQBwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qQRwTEeaOIPl65G1Tcw" name="details">
+      <eAnnotations xmi:id="_QO_qQhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qQxwTEeaOIPl65G1Tcw" key="uuid" value="_xXrUUWcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//String"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qRBwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qRRwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Class" xmi:id="_QO_qRhwTEeaOIPl65G1Tcw" name="ShoppingCart">
+    <eAnnotations xmi:id="_QO_qRxwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_qSBwTEeaOIPl65G1Tcw" key="uuid" value="_xXr7YGcdEeKLcsEXbJ0TrA"/>
+      <details xmi:id="_QO_qSRwTEeaOIPl65G1Tcw" key="gmm-documentation" value="The entity ShoppingCart is related to one Account, one WebUser and references several LineItem.&amp;nbsp;"/>
+    </eAnnotations>
+    <ownedAttribute xmi:id="_QO_qShwTEeaOIPl65G1Tcw" name="creationDate">
+      <eAnnotations xmi:id="_QO_qSxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qTBwTEeaOIPl65G1Tcw" key="uuid" value="_xXr7YWcdEeKLcsEXbJ0TrA"/>
+        <details xmi:id="_QO_qTRwTEeaOIPl65G1Tcw" key="gmm-documentation" value=""/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://GENMYMODEL_LIBRARIES/GenMyModelPrimitiveTypes.library.uml#//Date"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qThwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qTxwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Class" xmi:id="_QO_qUBwTEeaOIPl65G1Tcw" name="Account">
+    <eAnnotations xmi:id="_QO_qURwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_qUhwTEeaOIPl65G1Tcw" key="uuid" value="_xXsicGcdEeKLcsEXbJ0TrA"/>
+      <details xmi:id="_QO_qUxwTEeaOIPl65G1Tcw" key="gmm-documentation" value="Notice the aggregation from Customer. No account without a Customer. Account can be closed. Most of the time both Account and Customer stay in the database even when the customer unsuscribe/leave the shop.&amp;nbsp;&lt;div>&lt;br>&lt;/div>"/>
+    </eAnnotations>
+    <ownedAttribute xmi:id="_QO_qVBwTEeaOIPl65G1Tcw" name="billingAddress">
+      <eAnnotations xmi:id="_QO_qVRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qVhwTEeaOIPl65G1Tcw" key="uuid" value="_xXsicWcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//String"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qVxwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qWBwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qWRwTEeaOIPl65G1Tcw" name="open">
+      <eAnnotations xmi:id="_QO_qWhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qWxwTEeaOIPl65G1Tcw" key="uuid" value="_xXtJgGcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://GENMYMODEL_LIBRARIES/GenMyModelPrimitiveTypes.library.uml#//Date"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qXBwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qXRwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qXhwTEeaOIPl65G1Tcw" name="closed">
+      <eAnnotations xmi:id="_QO_qXxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qYBwTEeaOIPl65G1Tcw" key="uuid" value="_xXtJgWcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://GENMYMODEL_LIBRARIES/GenMyModelPrimitiveTypes.library.uml#//Date"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qYRwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qYhwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qYxwTEeaOIPl65G1Tcw" name="isClosed">
+      <eAnnotations xmi:id="_QO_qZBwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qZRwTEeaOIPl65G1Tcw" key="uuid" value="_xXtwkGcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//Boolean"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qZhwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qZxwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Class" xmi:id="_QO_qaBwTEeaOIPl65G1Tcw" name="WebUser">
+    <eAnnotations xmi:id="_QO_qaRwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_qahwTEeaOIPl65G1Tcw" key="uuid" value="_xXuXoGcdEeKLcsEXbJ0TrA"/>
+      <details xmi:id="_QO_qaxwTEeaOIPl65G1Tcw" key="gmm-documentation" value="The website visitor, considered not logged in yet."/>
+    </eAnnotations>
+    <ownedAttribute xmi:id="_QO_qbBwTEeaOIPl65G1Tcw" name="login" visibility="protected">
+      <eAnnotations xmi:id="_QO_qbRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qbhwTEeaOIPl65G1Tcw" key="uuid" value="_xXuXoWcdEeKLcsEXbJ0TrA"/>
+        <details xmi:id="_QO_qbxwTEeaOIPl65G1Tcw" key="gmm-documentation" value=""/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//String"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qcBwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qcRwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qchwTEeaOIPl65G1Tcw" name="password" visibility="private">
+      <eAnnotations xmi:id="_QO_qcxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qdBwTEeaOIPl65G1Tcw" key="uuid" value="_xXu-sGcdEeKLcsEXbJ0TrA"/>
+        <details xmi:id="_QO_qdRwTEeaOIPl65G1Tcw" key="gmm-documentation" value="Should be encrypted"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//String"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qdhwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qdxwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qeBwTEeaOIPl65G1Tcw" name="state" type="_QO_DABwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_qeRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qehwTEeaOIPl65G1Tcw" key="uuid" value="_xXu-sWcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qexwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qfBwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qfRwTEeaOIPl65G1Tcw" name="attributeArray">
+      <eAnnotations xmi:id="_QO_qfhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qfxwTEeaOIPl65G1Tcw" key="uuid" value="_brcdMPp3EDOmsap2LHvyNQ"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//String"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qgBwTEeaOIPl65G1Tcw" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qgRwTEeaOIPl65G1Tcw" name="staticAttribute" isStatic="true">
+      <eAnnotations xmi:id="_QO_qghwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qgxwTEeaOIPl65G1Tcw" key="uuid" value="_zrGDQPsyEDOZ4bUdqJSKpw"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qhBwTEeaOIPl65G1Tcw" name="readOnlyAttribute" isReadOnly="true">
+      <eAnnotations xmi:id="_QO_qhRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qhhwTEeaOIPl65G1Tcw" key="uuid" value="_HxUDQPs2EDOZ4bUdqJSKpw"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//Boolean"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Class" xmi:id="_QO_qhxwTEeaOIPl65G1Tcw" name="Order">
+    <eAnnotations xmi:id="_QO_qiBwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_qiRwTEeaOIPl65G1Tcw" key="uuid" value="_xXvlwGcdEeKLcsEXbJ0TrA"/>
+      <details xmi:id="_QO_qihwTEeaOIPl65G1Tcw" key="gmm-documentation" value="When the ShoppingCart with the LineItems are confirmed by the WebUser, an Order is created.&amp;nbsp;"/>
+    </eAnnotations>
+    <ownedAttribute xmi:id="_QO_qixwTEeaOIPl65G1Tcw" name="number">
+      <eAnnotations xmi:id="_QO_qjBwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qjRwTEeaOIPl65G1Tcw" key="uuid" value="_xXvlwWcdEeKLcsEXbJ0TrA"/>
+        <details xmi:id="_QO_qjhwTEeaOIPl65G1Tcw" key="gmm-documentation" value="&lt;u>Id&lt;/u>"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//Integer"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qjxwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qkBwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qkRwTEeaOIPl65G1Tcw" name="ordered">
+      <eAnnotations xmi:id="_QO_qkhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qkxwTEeaOIPl65G1Tcw" key="uuid" value="_xXwM0GcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://GENMYMODEL_LIBRARIES/GenMyModelPrimitiveTypes.library.uml#//Date"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qlBwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qlRwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qlhwTEeaOIPl65G1Tcw" name="shipped">
+      <eAnnotations xmi:id="_QO_qlxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qmBwTEeaOIPl65G1Tcw" key="uuid" value="_xXwM0WcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//Boolean"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qmRwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qmhwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qmxwTEeaOIPl65G1Tcw" name="shipTo">
+      <eAnnotations xmi:id="_QO_qnBwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qnRwTEeaOIPl65G1Tcw" key="uuid" value="_xXwz4GcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//String"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qnhwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qnxwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qoBwTEeaOIPl65G1Tcw" name="total">
+      <eAnnotations xmi:id="_QO_qoRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qohwTEeaOIPl65G1Tcw" key="uuid" value="_xXwz4WcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://GENMYMODEL_LIBRARIES/GenMyModelPrimitiveTypes.library.uml#//Real"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qoxwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qpBwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qpRwTEeaOIPl65G1Tcw" name="status" type="_QO_DDhwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_qphwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qpxwTEeaOIPl65G1Tcw" key="uuid" value="_xXxa8GcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qqBwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qqRwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Class" xmi:id="_QO_qqhwTEeaOIPl65G1Tcw" name="LineItem">
+    <eAnnotations xmi:id="_QO_qqxwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_qrBwTEeaOIPl65G1Tcw" key="uuid" value="_xXxa8WcdEeKLcsEXbJ0TrA"/>
+      <details xmi:id="_QO_qrRwTEeaOIPl65G1Tcw" key="gmm-documentation" value="Differentiated from Product to introduce quantity."/>
+    </eAnnotations>
+    <ownedAttribute xmi:id="_QO_qrhwTEeaOIPl65G1Tcw" name="quantity">
+      <eAnnotations xmi:id="_QO_qrxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qsBwTEeaOIPl65G1Tcw" key="uuid" value="_xXxa8mcdEeKLcsEXbJ0TrA"/>
+        <details xmi:id="_QO_qsRwTEeaOIPl65G1Tcw" key="gmm-documentation" value="The number of products"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//Integer"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qshwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qsxwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qtBwTEeaOIPl65G1Tcw" name="price">
+      <eAnnotations xmi:id="_QO_qtRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qthwTEeaOIPl65G1Tcw" key="uuid" value="_xXyCAGcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://GENMYMODEL_LIBRARIES/GenMyModelPrimitiveTypes.library.uml#//Real"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qtxwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_quBwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Class" xmi:id="_QO_quRwTEeaOIPl65G1Tcw" name="Product">
+    <eAnnotations xmi:id="_QO_quhwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_quxwTEeaOIPl65G1Tcw" key="uuid" value="_xXyCAWcdEeKLcsEXbJ0TrA"/>
+      <details xmi:id="_QO_qvBwTEeaOIPl65G1Tcw" key="gmm-documentation" value=""/>
+    </eAnnotations>
+    <ownedAttribute xmi:id="_QO_qvRwTEeaOIPl65G1Tcw" name="name">
+      <eAnnotations xmi:id="_QO_qvhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qvxwTEeaOIPl65G1Tcw" key="uuid" value="_xXyCAmcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//String"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qwBwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qwRwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QO_qwhwTEeaOIPl65G1Tcw" name="description">
+      <eAnnotations xmi:id="_QO_qwxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qxBwTEeaOIPl65G1Tcw" key="uuid" value="_xXypEGcdEeKLcsEXbJ0TrA"/>
+      </eAnnotations>
+      <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//String"/>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qxRwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_qxhwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Association" xmi:id="_QO_qxxwTEeaOIPl65G1Tcw" name="Account_Payment" memberEnd="_QO_qyxwTEeaOIPl65G1Tcw _QO_q0RwTEeaOIPl65G1Tcw" navigableOwnedEnd="_QO_qyxwTEeaOIPl65G1Tcw _QO_q0RwTEeaOIPl65G1Tcw">
+    <eAnnotations xmi:id="_QO_qyBwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_qyRwTEeaOIPl65G1Tcw" key="uuid" value="_xX1FUGcdEeKLcsEXbJ0TrA"/>
+      <details xmi:id="_QO_qyhwTEeaOIPl65G1Tcw" key="gmm-documentation" value=""/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_QO_qyxwTEeaOIPl65G1Tcw" name="p" type="_QO_qMhwTEeaOIPl65G1Tcw" association="_QO_qxxwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_qzBwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_qzRwTEeaOIPl65G1Tcw" key="uuid" value="_xX1FUWcdEeKLcsEXbJ0TrA"/>
+        <details xmi:id="_QO_qzhwTEeaOIPl65G1Tcw" key="gmm-documentation" value=""/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_qzxwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_q0BwTEeaOIPl65G1Tcw" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_QO_q0RwTEeaOIPl65G1Tcw" name="acc" type="_QO_qUBwTEeaOIPl65G1Tcw" association="_QO_qxxwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_q0hwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_q0xwTEeaOIPl65G1Tcw" key="uuid" value="_xX1FUmcdEeKLcsEXbJ0TrA"/>
+        <details xmi:id="_QO_q1BwTEeaOIPl65G1Tcw" key="gmm-documentation" value=""/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_q1RwTEeaOIPl65G1Tcw" value="1"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_q1hwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Association" xmi:id="_QO_q1xwTEeaOIPl65G1Tcw" name="WebUser_ShoppingCart" memberEnd="_QO_q2hwTEeaOIPl65G1Tcw _QO_q3xwTEeaOIPl65G1Tcw" navigableOwnedEnd="_QO_q2hwTEeaOIPl65G1Tcw _QO_q3xwTEeaOIPl65G1Tcw">
+    <eAnnotations xmi:id="_QO_q2BwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_q2RwTEeaOIPl65G1Tcw" key="uuid" value="_ISCm0PdvEDCQ7NK455wpgA"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_QO_q2hwTEeaOIPl65G1Tcw" name="shoppingCart" type="_QO_qRhwTEeaOIPl65G1Tcw" association="_QO_q1xwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_q2xwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_q3BwTEeaOIPl65G1Tcw" key="uuid" value="_ISAKkPdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_q3RwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_q3hwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_QO_q3xwTEeaOIPl65G1Tcw" name="webUser" type="_QO_qaBwTEeaOIPl65G1Tcw" association="_QO_q1xwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_q4BwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_q4RwTEeaOIPl65G1Tcw" key="uuid" value="_ISB_wPdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_q4hwTEeaOIPl65G1Tcw" value="1"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_q4xwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Association" xmi:id="_QO_q5BwTEeaOIPl65G1Tcw" name="WebUser_Customer" memberEnd="_QO_q5xwTEeaOIPl65G1Tcw _QO_q7BwTEeaOIPl65G1Tcw" navigableOwnedEnd="_QO_q5xwTEeaOIPl65G1Tcw _QO_q7BwTEeaOIPl65G1Tcw">
+    <eAnnotations xmi:id="_QO_q5RwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_q5hwTEeaOIPl65G1Tcw" key="uuid" value="_L_1HMfdvEDCQ7NK455wpgA"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_QO_q5xwTEeaOIPl65G1Tcw" name="customer" type="_QO_qCRwTEeaOIPl65G1Tcw" association="_QO_q5BwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_q6BwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_q6RwTEeaOIPl65G1Tcw" key="uuid" value="_L_yD4PdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_q6hwTEeaOIPl65G1Tcw" value="1"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_q6xwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_QO_q7BwTEeaOIPl65G1Tcw" name="webUser" type="_QO_qaBwTEeaOIPl65G1Tcw" association="_QO_q5BwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_q7RwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_q7hwTEeaOIPl65G1Tcw" key="uuid" value="_L_1HMPdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_q7xwTEeaOIPl65G1Tcw" value="1"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_q8BwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Association" xmi:id="_QO_q8RwTEeaOIPl65G1Tcw" name="Customer_Account" memberEnd="_QO_q9BwTEeaOIPl65G1Tcw _QO_q-RwTEeaOIPl65G1Tcw" navigableOwnedEnd="_QO_q9BwTEeaOIPl65G1Tcw _QO_q-RwTEeaOIPl65G1Tcw">
+    <eAnnotations xmi:id="_QO_q8hwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_q8xwTEeaOIPl65G1Tcw" key="uuid" value="_N8zKMPdvEDCQ7NK455wpgA"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_QO_q9BwTEeaOIPl65G1Tcw" name="account" type="_QO_qUBwTEeaOIPl65G1Tcw" aggregation="composite" association="_QO_q8RwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_q9RwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_q9hwTEeaOIPl65G1Tcw" key="uuid" value="_N8wG4PdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_q9xwTEeaOIPl65G1Tcw" value="1"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_q-BwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_QO_q-RwTEeaOIPl65G1Tcw" name="customer" type="_QO_qCRwTEeaOIPl65G1Tcw" association="_QO_q8RwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_q-hwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_q-xwTEeaOIPl65G1Tcw" key="uuid" value="_N8yjIPdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_q_BwTEeaOIPl65G1Tcw" value="1"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_q_RwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Association" xmi:id="_QO_q_hwTEeaOIPl65G1Tcw" name="Account_ShoppingCart" memberEnd="_QO_rARwTEeaOIPl65G1Tcw _QO_rBhwTEeaOIPl65G1Tcw" navigableOwnedEnd="_QO_rARwTEeaOIPl65G1Tcw _QO_rBhwTEeaOIPl65G1Tcw">
+    <eAnnotations xmi:id="_QO_q_xwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_rABwTEeaOIPl65G1Tcw" key="uuid" value="_PkPpIPdvEDCQ7NK455wpgA"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_QO_rARwTEeaOIPl65G1Tcw" name="cart" type="_QO_qRhwTEeaOIPl65G1Tcw" aggregation="composite" association="_QO_q_hwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rAhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rAxwTEeaOIPl65G1Tcw" key="uuid" value="_PkL-wPdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_rBBwTEeaOIPl65G1Tcw" value="1"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_rBRwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_QO_rBhwTEeaOIPl65G1Tcw" name="account" type="_QO_qUBwTEeaOIPl65G1Tcw" association="_QO_q_hwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rBxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rCBwTEeaOIPl65G1Tcw" key="uuid" value="_PkObAPdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_rCRwTEeaOIPl65G1Tcw" value="1"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_rChwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Association" xmi:id="_QO_rCxwTEeaOIPl65G1Tcw" name="ShoppingCart_LineItem" memberEnd="_QO_rDhwTEeaOIPl65G1Tcw _QO_rExwTEeaOIPl65G1Tcw" navigableOwnedEnd="_QO_rDhwTEeaOIPl65G1Tcw _QO_rExwTEeaOIPl65G1Tcw">
+    <eAnnotations xmi:id="_QO_rDBwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_rDRwTEeaOIPl65G1Tcw" key="uuid" value="_WBA4QPdvEDCQ7NK455wpgA"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_QO_rDhwTEeaOIPl65G1Tcw" name="items" type="_QO_qqhwTEeaOIPl65G1Tcw" association="_QO_rCxwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rDxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rEBwTEeaOIPl65G1Tcw" key="uuid" value="_WA8m0PdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_rERwTEeaOIPl65G1Tcw" value="1"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_rEhwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_QO_rExwTEeaOIPl65G1Tcw" name="sc" type="_QO_qRhwTEeaOIPl65G1Tcw" association="_QO_rCxwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rFBwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rFRwTEeaOIPl65G1Tcw" key="uuid" value="_WA_qIPdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_rFhwTEeaOIPl65G1Tcw" value="1"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_rFxwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Association" xmi:id="_QO_rGBwTEeaOIPl65G1Tcw" name="Product_LineItem" memberEnd="_QO_rGxwTEeaOIPl65G1Tcw _QO_rIBwTEeaOIPl65G1Tcw" navigableOwnedEnd="_QO_rGxwTEeaOIPl65G1Tcw _QO_rIBwTEeaOIPl65G1Tcw">
+    <eAnnotations xmi:id="_QO_rGRwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_rGhwTEeaOIPl65G1Tcw" key="uuid" value="_qxalEPdvEDCQ7NK455wpgA"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_QO_rGxwTEeaOIPl65G1Tcw" name="lineItems" type="_QO_qqhwTEeaOIPl65G1Tcw" association="_QO_rGBwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rHBwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rHRwTEeaOIPl65G1Tcw" key="uuid" value="_qxWToPdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_rHhwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_rHxwTEeaOIPl65G1Tcw" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_QO_rIBwTEeaOIPl65G1Tcw" name="product" type="_QO_quRwTEeaOIPl65G1Tcw" association="_QO_rGBwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rIRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rIhwTEeaOIPl65G1Tcw" key="uuid" value="_qxZW8PdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_rIxwTEeaOIPl65G1Tcw" value="1"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_rJBwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Association" xmi:id="_QO_rJRwTEeaOIPl65G1Tcw" name="Order_LineItem" memberEnd="_QO_rKBwTEeaOIPl65G1Tcw _QO_rLRwTEeaOIPl65G1Tcw" navigableOwnedEnd="_QO_rKBwTEeaOIPl65G1Tcw">
+    <eAnnotations xmi:id="_QO_rJhwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_rJxwTEeaOIPl65G1Tcw" key="uuid" value="_zHzBMPdvEDCQ7NK455wpgA"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_QO_rKBwTEeaOIPl65G1Tcw" name="items" type="_QO_qqhwTEeaOIPl65G1Tcw" association="_QO_rJRwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rKRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rKhwTEeaOIPl65G1Tcw" key="uuid" value="_zHxzEPdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_rKxwTEeaOIPl65G1Tcw" value="1"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_rLBwTEeaOIPl65G1Tcw" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_QO_rLRwTEeaOIPl65G1Tcw" name="order" type="_QO_qhxwTEeaOIPl65G1Tcw" association="_QO_rJRwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rLhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rLxwTEeaOIPl65G1Tcw" key="uuid" value="_zHyaIPdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_rMBwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_rMRwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Association" xmi:id="_QO_rMhwTEeaOIPl65G1Tcw" name="Account_Order" memberEnd="_QO_rNRwTEeaOIPl65G1Tcw _QO_rOhwTEeaOIPl65G1Tcw" navigableOwnedEnd="_QO_rNRwTEeaOIPl65G1Tcw _QO_rOhwTEeaOIPl65G1Tcw">
+    <eAnnotations xmi:id="_QO_rMxwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_rNBwTEeaOIPl65G1Tcw" key="uuid" value="_2uIOsfdvEDCQ7NK455wpgA"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_QO_rNRwTEeaOIPl65G1Tcw" name="order" type="_QO_qhxwTEeaOIPl65G1Tcw" aggregation="composite" association="_QO_rMhwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rNhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rNxwTEeaOIPl65G1Tcw" key="uuid" value="_2uHAkPdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_rOBwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_rORwTEeaOIPl65G1Tcw" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_QO_rOhwTEeaOIPl65G1Tcw" name="account" type="_QO_qUBwTEeaOIPl65G1Tcw" association="_QO_rMhwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rOxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rPBwTEeaOIPl65G1Tcw" key="uuid" value="_2uIOsPdvEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_rPRwTEeaOIPl65G1Tcw" value="1"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_rPhwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Association" xmi:id="_QO_rPxwTEeaOIPl65G1Tcw" name="Payment_Order" memberEnd="_QO_rQhwTEeaOIPl65G1Tcw _QO_rRxwTEeaOIPl65G1Tcw" navigableOwnedEnd="_QO_rQhwTEeaOIPl65G1Tcw">
+    <eAnnotations xmi:id="_QO_rQBwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_rQRwTEeaOIPl65G1Tcw" key="uuid" value="_OGCJQfdwEDCQ7NK455wpgA"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_QO_rQhwTEeaOIPl65G1Tcw" name="order" type="_QO_qhxwTEeaOIPl65G1Tcw" association="_QO_rPxwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rQxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rRBwTEeaOIPl65G1Tcw" key="uuid" value="_OF-e4PdwEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_rRRwTEeaOIPl65G1Tcw" value="1"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_rRhwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_QO_rRxwTEeaOIPl65G1Tcw" name="payment" type="_QO_qMhwTEeaOIPl65G1Tcw" association="_QO_rPxwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rSBwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rSRwTEeaOIPl65G1Tcw" key="uuid" value="_OGCJQPdwEDCQ7NK455wpgA"/>
+      </eAnnotations>
+      <lowerValue xsi:type="uml:LiteralInteger" xmi:id="_QO_rShwTEeaOIPl65G1Tcw"/>
+      <upperValue xsi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO_rSxwTEeaOIPl65G1Tcw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Activity" xmi:id="_QO_rTBwTEeaOIPl65G1Tcw" name="Activity">
+    <eAnnotations xmi:id="_QO_rTRwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QO_rThwTEeaOIPl65G1Tcw" key="uuid" value="_4wyAcF9NEDGXpelZg_yjMg"/>
+    </eAnnotations>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rTxwTEeaOIPl65G1Tcw" name="ControlFlow3" source="_QO_r0BwTEeaOIPl65G1Tcw" target="_QO_r5BwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rUBwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rURwTEeaOIPl65G1Tcw" key="uuid" value="_aeliYF9PEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rUhwTEeaOIPl65G1Tcw" value="true">
+        <eAnnotations xmi:id="_QO_rUxwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rVBwTEeaOIPl65G1Tcw" key="uuid" value="_aegp4F9PEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rVRwTEeaOIPl65G1Tcw" name="ControlFlow4" source="_QO_r5xwTEeaOIPl65G1Tcw" target="_QO_r4RwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rVhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rVxwTEeaOIPl65G1Tcw" key="uuid" value="_eFn6gF9PEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rWBwTEeaOIPl65G1Tcw" value="made decision">
+        <eAnnotations xmi:id="_QO_rWRwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rWhwTEeaOIPl65G1Tcw" key="uuid" value="_eFia8F9PEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rWxwTEeaOIPl65G1Tcw" name="ControlFlow" source="_QO_r3hwTEeaOIPl65G1Tcw" target="_QO_r5xwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rXBwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rXRwTEeaOIPl65G1Tcw" key="uuid" value="_zem00F9QEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rXhwTEeaOIPl65G1Tcw" value="true">
+        <eAnnotations xmi:id="_QO_rXxwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rYBwTEeaOIPl65G1Tcw" key="uuid" value="_zejKcF9QEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rYRwTEeaOIPl65G1Tcw" name="ControlFlow6" source="_QO_r2BwTEeaOIPl65G1Tcw" target="_QO_r_BwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rYhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rYxwTEeaOIPl65G1Tcw" key="uuid" value="_PUZP8F9REDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rZBwTEeaOIPl65G1Tcw" name="ControlFlow8" source="_QO_r_BwTEeaOIPl65G1Tcw" target="_QO_r3hwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rZRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rZhwTEeaOIPl65G1Tcw" key="uuid" value="_QNYtcF9REDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rZxwTEeaOIPl65G1Tcw" value="true">
+        <eAnnotations xmi:id="_QO_raBwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_raRwTEeaOIPl65G1Tcw" key="uuid" value="_QNW4QF9REDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rahwTEeaOIPl65G1Tcw" name="ControlFlow9" source="_QO_r0xwTEeaOIPl65G1Tcw" target="_QO_r6hwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_raxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rbBwTEeaOIPl65G1Tcw" key="uuid" value="_R-En8F9REDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rbRwTEeaOIPl65G1Tcw" value="true">
+        <eAnnotations xmi:id="_QO_rbhwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rbxwTEeaOIPl65G1Tcw" key="uuid" value="_R-CywF9REDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rcBwTEeaOIPl65G1Tcw" name="ControlFlow7" source="_QO_r6hwTEeaOIPl65G1Tcw" target="_QO_r_BwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rcRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rchwTEeaOIPl65G1Tcw" key="uuid" value="_d6FG8F9REDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rcxwTEeaOIPl65G1Tcw" value="found">
+        <eAnnotations xmi:id="_QO_rdBwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rdRwTEeaOIPl65G1Tcw" key="uuid" value="_d6DRwF9REDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rdhwTEeaOIPl65G1Tcw" name="ControlFlow19" source="_QO_r5BwTEeaOIPl65G1Tcw" target="_QO_r_xwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rdxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_reBwTEeaOIPl65G1Tcw" key="uuid" value="_NDTFIF9TEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_reRwTEeaOIPl65G1Tcw" value="true">
+        <eAnnotations xmi:id="_QO_rehwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rexwTEeaOIPl65G1Tcw" key="uuid" value="_NDOzsF9TEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rfBwTEeaOIPl65G1Tcw" name="ControlFlow5" source="_QO_r_xwTEeaOIPl65G1Tcw" target="_QO_sAhwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rfRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rfhwTEeaOIPl65G1Tcw" key="uuid" value="_RL_Y0F9TEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rfxwTEeaOIPl65G1Tcw" value="search">
+        <eAnnotations xmi:id="_QO_rgBwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rgRwTEeaOIPl65G1Tcw" key="uuid" value="_RL8VgF9TEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rghwTEeaOIPl65G1Tcw" name="ControlFlow11" source="_QO_r5xwTEeaOIPl65G1Tcw" target="_QO_sAhwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rgxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rhBwTEeaOIPl65G1Tcw" key="uuid" value="_SwQn8F9TEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rhRwTEeaOIPl65G1Tcw" name="ControlFlow21" source="_QO_sAhwTEeaOIPl65G1Tcw" target="_QO_r0xwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rhhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rhxwTEeaOIPl65G1Tcw" key="uuid" value="_YJKmUF9TEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_riBwTEeaOIPl65G1Tcw" value="true">
+        <eAnnotations xmi:id="_QO_riRwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rihwTEeaOIPl65G1Tcw" key="uuid" value="_YJIxIF9TEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rixwTEeaOIPl65G1Tcw" name="ControlFlow2" source="_QO_r5BwTEeaOIPl65G1Tcw" target="_QPARERwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rjBwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rjRwTEeaOIPl65G1Tcw" key="uuid" value="_fV3dkF9TEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rjhwTEeaOIPl65G1Tcw" value="browse">
+        <eAnnotations xmi:id="_QO_rjxwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rkBwTEeaOIPl65G1Tcw" key="uuid" value="_fV22gF9TEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rkRwTEeaOIPl65G1Tcw" name="ControlFlow10" source="_QPARERwTEeaOIPl65G1Tcw" target="_QO_r2BwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rkhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rkxwTEeaOIPl65G1Tcw" key="uuid" value="_f9MjUF9TEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rlBwTEeaOIPl65G1Tcw" value="true">
+        <eAnnotations xmi:id="_QO_rlRwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rlhwTEeaOIPl65G1Tcw" key="uuid" value="_f9KuIF9TEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rlxwTEeaOIPl65G1Tcw" name="ControlFlow20" source="_QO_r5xwTEeaOIPl65G1Tcw" target="_QPARERwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rmBwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rmRwTEeaOIPl65G1Tcw" key="uuid" value="_iW2iUF9TEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rmhwTEeaOIPl65G1Tcw" name="ControlFlow22" source="_QO_r6hwTEeaOIPl65G1Tcw" target="_QO_r_xwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rmxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rnBwTEeaOIPl65G1Tcw" key="uuid" value="_rXte0F9TEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rnRwTEeaOIPl65G1Tcw" value="not found">
+        <eAnnotations xmi:id="_QO_rnhwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rnxwTEeaOIPl65G1Tcw" key="uuid" value="_rXrCkF9TEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_roBwTEeaOIPl65G1Tcw" name="ControlFlow23" source="_QO_r8xwTEeaOIPl65G1Tcw" target="_QPARFBwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_roRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rohwTEeaOIPl65G1Tcw" key="uuid" value="_Et_KkF9UEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_roxwTEeaOIPl65G1Tcw" value="true">
+        <eAnnotations xmi:id="_QO_rpBwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rpRwTEeaOIPl65G1Tcw" key="uuid" value="_Et-jgF9UEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rphwTEeaOIPl65G1Tcw" name="ControlFlow24" source="_QO_r4RwTEeaOIPl65G1Tcw" target="_QPARFBwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rpxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rqBwTEeaOIPl65G1Tcw" key="uuid" value="_FM4tEF9UEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rqRwTEeaOIPl65G1Tcw" value="true">
+        <eAnnotations xmi:id="_QO_rqhwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rqxwTEeaOIPl65G1Tcw" key="uuid" value="_FM3e8F9UEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rrBwTEeaOIPl65G1Tcw" name="ControlFlow12" source="_QPARFBwTEeaOIPl65G1Tcw" target="_QO_r7RwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rrRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rrhwTEeaOIPl65G1Tcw" key="uuid" value="_O9r4wF9UEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rrxwTEeaOIPl65G1Tcw" value="view cart">
+        <eAnnotations xmi:id="_QO_rsBwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rsRwTEeaOIPl65G1Tcw" key="uuid" value="_O9qDkF9UEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rshwTEeaOIPl65G1Tcw" name="ControlFlow14" source="_QO_r7RwTEeaOIPl65G1Tcw" target="_QO_r8BwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rsxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rtBwTEeaOIPl65G1Tcw" key="uuid" value="_SxwAQF9UEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rtRwTEeaOIPl65G1Tcw" value="true">
+        <eAnnotations xmi:id="_QO_rthwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rtxwTEeaOIPl65G1Tcw" key="uuid" value="_SxuLEF9UEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_ruBwTEeaOIPl65G1Tcw" name="ControlFlow15" source="_QO_r8BwTEeaOIPl65G1Tcw" target="_QO_r8xwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_ruRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_ruhwTEeaOIPl65G1Tcw" key="uuid" value="_TnxpUF9UEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_ruxwTEeaOIPl65G1Tcw" value="true">
+        <eAnnotations xmi:id="_QO_rvBwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rvRwTEeaOIPl65G1Tcw" key="uuid" value="_Tnv0IF9UEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rvhwTEeaOIPl65G1Tcw" name="ControlFlow16" source="_QO_r9hwTEeaOIPl65G1Tcw" target="_QO_r-RwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rvxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rwBwTEeaOIPl65G1Tcw" key="uuid" value="_V8I4oF9UEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rwRwTEeaOIPl65G1Tcw" value="true">
+        <eAnnotations xmi:id="_QO_rwhwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rwxwTEeaOIPl65G1Tcw" key="uuid" value="_V8HqgF9UEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_rxBwTEeaOIPl65G1Tcw" name="ControlFlow17" source="_QO_r8BwTEeaOIPl65G1Tcw" target="_QO_r9hwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_rxRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rxhwTEeaOIPl65G1Tcw" key="uuid" value="_3zi38F9UEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rxxwTEeaOIPl65G1Tcw" value="true">
+        <eAnnotations xmi:id="_QO_ryBwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_ryRwTEeaOIPl65G1Tcw" key="uuid" value="_3zfNkF9UEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <edge xsi:type="uml:ControlFlow" xmi:id="_QO_ryhwTEeaOIPl65G1Tcw" name="ControlFlow18" source="_QO_r8BwTEeaOIPl65G1Tcw" target="_QPARERwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_ryxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_rzBwTEeaOIPl65G1Tcw" key="uuid" value="_O1E54F9VEDGXpelZg_yjMg"/>
+      </eAnnotations>
+      <guard xsi:type="uml:LiteralString" xmi:id="_QO_rzRwTEeaOIPl65G1Tcw" value="more shopping">
+        <eAnnotations xmi:id="_QO_rzhwTEeaOIPl65G1Tcw" source="genmymodel">
+          <details xmi:id="_QO_rzxwTEeaOIPl65G1Tcw" key="uuid" value="_O1B2kF9VEDGXpelZg_yjMg"/>
+        </eAnnotations>
+      </guard>
+    </edge>
+    <ownedNode xsi:type="uml:InitialNode" xmi:id="_QO_r0BwTEeaOIPl65G1Tcw" name="cart_start" outgoing="_QO_rTxwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_r0RwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_r0hwTEeaOIPl65G1Tcw" key="uuid" value="_O6DIMF9PEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:OpaqueAction" xmi:id="_QO_r0xwTEeaOIPl65G1Tcw" name="Search Items" outgoing="_QO_rahwTEeaOIPl65G1Tcw" incoming="_QO_rhRwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_r1BwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_r1RwTEeaOIPl65G1Tcw" key="uuid" value="_PhFTAF9PEDGXpelZg_yjMg"/>
+        <details xmi:id="_QO_r1hwTEeaOIPl65G1Tcw" key="template" value="master_detail"/>
+        <details xmi:id="_QO_r1xwTEeaOIPl65G1Tcw" key="theme" value="dark"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:OpaqueAction" xmi:id="_QO_r2BwTEeaOIPl65G1Tcw" name="Browse Items" outgoing="_QO_rYRwTEeaOIPl65G1Tcw" incoming="_QO_rkRwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_r2RwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_r2hwTEeaOIPl65G1Tcw" key="uuid" value="_Q82GYF9PEDGXpelZg_yjMg"/>
+        <details xmi:id="_QO_r2xwTEeaOIPl65G1Tcw" key="template" value="wki_browse"/>
+        <details xmi:id="_QO_r3BwTEeaOIPl65G1Tcw" key="source" value="products"/>
+        <details xmi:id="_QO_r3RwTEeaOIPl65G1Tcw" key="configuration" value="browse_configuration"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:OpaqueAction" xmi:id="_QO_r3hwTEeaOIPl65G1Tcw" name="View item" outgoing="_QO_rWxwTEeaOIPl65G1Tcw" incoming="_QO_rZBwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_r3xwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_r4BwTEeaOIPl65G1Tcw" key="uuid" value="_Sm0U4F9PEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:OpaqueAction" xmi:id="_QO_r4RwTEeaOIPl65G1Tcw" name="Add to shopping cart" outgoing="_QO_rphwTEeaOIPl65G1Tcw" incoming="_QO_rVRwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_r4hwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_r4xwTEeaOIPl65G1Tcw" key="uuid" value="_UGzg8F9PEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:DecisionNode" xmi:id="_QO_r5BwTEeaOIPl65G1Tcw" name="DecisionNode" outgoing="_QO_rixwTEeaOIPl65G1Tcw _QO_rdhwTEeaOIPl65G1Tcw" incoming="_QO_rTxwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_r5RwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_r5hwTEeaOIPl65G1Tcw" key="uuid" value="_Y2PEgF9PEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:DecisionNode" xmi:id="_QO_r5xwTEeaOIPl65G1Tcw" name="DecisionNode2" outgoing="_QO_rlxwTEeaOIPl65G1Tcw _QO_rghwTEeaOIPl65G1Tcw _QO_rVRwTEeaOIPl65G1Tcw" incoming="_QO_rWxwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_r6BwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_r6RwTEeaOIPl65G1Tcw" key="uuid" value="_dgU1EF9PEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:DecisionNode" xmi:id="_QO_r6hwTEeaOIPl65G1Tcw" name="DecisionNode5" outgoing="_QO_rmhwTEeaOIPl65G1Tcw _QO_rcBwTEeaOIPl65G1Tcw" incoming="_QO_rahwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_r6xwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_r7BwTEeaOIPl65G1Tcw" key="uuid" value="_ncI98F9PEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:OpaqueAction" xmi:id="_QO_r7RwTEeaOIPl65G1Tcw" name="View shopping cart" outgoing="_QO_rshwTEeaOIPl65G1Tcw" incoming="_QO_rrBwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_r7hwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_r7xwTEeaOIPl65G1Tcw" key="uuid" value="_u65OgF9PEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:DecisionNode" xmi:id="_QO_r8BwTEeaOIPl65G1Tcw" name="DecisionNode10" outgoing="_QO_rxBwTEeaOIPl65G1Tcw _QO_ruBwTEeaOIPl65G1Tcw _QO_ryhwTEeaOIPl65G1Tcw" incoming="_QO_rshwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_r8RwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_r8hwTEeaOIPl65G1Tcw" key="uuid" value="_0sgAwF9PEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:OpaqueAction" xmi:id="_QO_r8xwTEeaOIPl65G1Tcw" name="Update shopping cart" outgoing="_QO_roBwTEeaOIPl65G1Tcw" incoming="_QO_ruBwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_r9BwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_r9RwTEeaOIPl65G1Tcw" key="uuid" value="_1K83UF9PEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:OpaqueAction" xmi:id="_QO_r9hwTEeaOIPl65G1Tcw" name="Checkout" outgoing="_QO_rvhwTEeaOIPl65G1Tcw" incoming="_QO_rxBwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_r9xwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_r-BwTEeaOIPl65G1Tcw" key="uuid" value="_7vgJcF9PEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:ActivityFinalNode" xmi:id="_QO_r-RwTEeaOIPl65G1Tcw" name="ActivityFinalNode" incoming="_QO_rvhwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_r-hwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_r-xwTEeaOIPl65G1Tcw" key="uuid" value="_89ip4F9PEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:MergeNode" xmi:id="_QO_r_BwTEeaOIPl65G1Tcw" name="MergeNode" outgoing="_QO_rZBwTEeaOIPl65G1Tcw" incoming="_QO_rYRwTEeaOIPl65G1Tcw _QO_rcBwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_r_RwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_r_hwTEeaOIPl65G1Tcw" key="uuid" value="_OrkVYF9REDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:MergeNode" xmi:id="_QO_r_xwTEeaOIPl65G1Tcw" name="MergeNode3" outgoing="_QO_rfBwTEeaOIPl65G1Tcw" incoming="_QO_rdhwTEeaOIPl65G1Tcw _QO_rmhwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_sABwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QO_sARwTEeaOIPl65G1Tcw" key="uuid" value="_MdELkF9TEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:MergeNode" xmi:id="_QO_sAhwTEeaOIPl65G1Tcw" name="MergeNode4" outgoing="_QO_rhRwTEeaOIPl65G1Tcw" incoming="_QO_rfBwTEeaOIPl65G1Tcw _QO_rghwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QO_sAxwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QPAREBwTEeaOIPl65G1Tcw" key="uuid" value="_Qhj7wF9TEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:MergeNode" xmi:id="_QPARERwTEeaOIPl65G1Tcw" name="MergeNode5" outgoing="_QO_rkRwTEeaOIPl65G1Tcw" incoming="_QO_rlxwTEeaOIPl65G1Tcw _QO_rixwTEeaOIPl65G1Tcw _QO_ryhwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QPAREhwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QPARExwTEeaOIPl65G1Tcw" key="uuid" value="_ewzosF9TEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+    <ownedNode xsi:type="uml:MergeNode" xmi:id="_QPARFBwTEeaOIPl65G1Tcw" name="MergeNode6" outgoing="_QO_rrBwTEeaOIPl65G1Tcw" incoming="_QO_roBwTEeaOIPl65G1Tcw _QO_rphwTEeaOIPl65G1Tcw">
+      <eAnnotations xmi:id="_QPARFRwTEeaOIPl65G1Tcw" source="genmymodel">
+        <details xmi:id="_QPARFhwTEeaOIPl65G1Tcw" key="uuid" value="_DyHYMF9UEDGXpelZg_yjMg"/>
+      </eAnnotations>
+    </ownedNode>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Class" xmi:id="_QPARFxwTEeaOIPl65G1Tcw" name="AbstractClass" visibility="private" isAbstract="true">
+    <eAnnotations xmi:id="_QPARGBwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QPARGRwTEeaOIPl65G1Tcw" key="uuid" value="_KAjZMP4vEDOkid9-vgaT8A"/>
+    </eAnnotations>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Class" xmi:id="_QPARGhwTEeaOIPl65G1Tcw" name="LeafClass" isLeaf="true">
+    <eAnnotations xmi:id="_QPARGxwTEeaOIPl65G1Tcw" source="genmymodel">
+      <details xmi:id="_QPARHBwTEeaOIPl65G1Tcw" key="uuid" value="_b38CwP41EDOkid9-vgaT8A"/>
+    </eAnnotations>
+  </packagedElement>
+</uml:Model>

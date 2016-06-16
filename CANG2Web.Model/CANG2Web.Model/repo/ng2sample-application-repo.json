@@ -1,0 +1,111 @@
+{
+  "type": "application",
+  "name": "NG2Sample",
+  "namespace": "NG2Sample",
+  "description": "NG2Sample application",
+  "operations": [
+    {
+      "type": "HTTP-GET",
+      "name": "getPolicies",
+      "parameters": [
+        {
+          "direction": "IN",
+          "type": "string",
+          "name": "policyname",
+          "description": "the product name filter"
+        },
+        {
+          "direction": "RETVAL",
+          "type": "Policy",
+          "isArray": true,
+          "name": "products",
+          "description": "the filtered products results"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "type": "entity",
+      "name": "Base",
+      "description": "common base entity",
+      "fields": [
+        // id
+        {
+          "name": "id",
+          "description": "the identifier",
+          "isKey": true,
+          "type": "uuid"
+        }
+      ]
+    },
+    //{
+    //  "type": "enum",
+    //  "name": "Status",
+    //  "description": "State of procedure",
+    //  "enumeratorList": [
+    //    {
+    //      "name": "Started",
+    //      "description": "Procedure started",
+    //      "value": 1
+    //    },
+    //    {
+    //      "name": "Stopped",
+    //      "description": "Procedure stopped"
+    //    },
+    //    {
+    //      "name": "Finished",
+    //      "description": "Procedure finished"
+    //    }
+    //  ]
+    //},
+    {
+      "type": "entity",
+      "name": "Policy",
+      "description": "$$entityPolicy$$",
+      "fields": [
+        {
+          "name": "Id",
+          "isKey": true,
+          "type": "string",
+          "description": "Key"
+        },
+        {
+          "name": "UserId",
+          "description": "User identifier",
+          "type": "string"
+        },
+        {
+          "name": "Claims",
+          "isArray": true,
+          "type": "Claim",
+          "description": "Claims of user"
+        }
+      ]
+    },
+    {
+      "type": "entity",
+      "name": "Claim",
+      "description": "a security claim",
+      "fields": [
+        {
+          "name": "Id",
+          "isKey": true,
+          "type": "string",
+          "description": "Key"
+        },
+        {
+          "name": "Key",
+          "description": "claim key",
+          "type": "string"
+        },
+        {
+          "name": "Value",
+          "isArray": false,
+          "type": "string",
+          "description": "Claim value"
+        }
+      ]
+    }
+  ]
+}

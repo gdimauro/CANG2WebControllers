@@ -1,0 +1,13 @@
+{
+  "type": "task",
+  "name": "ConstructionCosts",
+  "namespace": "NG2Sample.Samples.ConstructionCosts",
+  "description": "Construction costs sample scenario",
+  "domain-ref": "repo/samples/ng2sample-samples-domain-repo.json",
+  "includes": [
+    {
+      "path": "test/fixtures/construction-costs-xmi.xml",
+      "type": "XMI-UML"
+    }
+  ]
+}

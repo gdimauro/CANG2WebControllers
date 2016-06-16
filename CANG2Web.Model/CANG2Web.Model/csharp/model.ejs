@@ -1,0 +1,7 @@
+<%
+// console.log('Template: model.ejs');
+%><%-outputToFile('/' + model.namespace.replace(/\./g, '/') + '/' + model.name+'+Controller.cs')
+%><%-render('controllers.ejs', { model: model })
+%><%-outputToFile('/' + model.namespace.replace(/\./g, '/') + '/' + model.name+'+Model.cs')
+%><%-render('data-model.ejs', { model: model })
+%>

@@ -1,0 +1,8 @@
+<%/* template: doc/class.ejs */
+
+
+%>  /**<%-render('doc/description.ejs', entity)%><%
+if (entity.hasKey('example')) {
+%>  * @example
+  * // <%-entity.getAnnotationByKey('example').value%><%  
+}%>  */

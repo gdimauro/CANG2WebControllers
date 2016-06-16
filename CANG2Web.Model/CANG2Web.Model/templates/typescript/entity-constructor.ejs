@@ -1,0 +1,13 @@
+<%/* template: entityConstructor.ejs */
+%>  // ... constructor code
+
+  public constructor() {<%
+  if (entity.ancestor) {
+  %>
+    super();<% 
+  }
+  else {%>
+    ;<%
+  }
+  %>
+  }

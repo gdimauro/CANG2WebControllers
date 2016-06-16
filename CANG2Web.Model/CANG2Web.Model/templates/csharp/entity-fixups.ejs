@@ -1,0 +1,52 @@
+<%/* template: entityFixup.ejs */
+%>    #region FIXUPS <%-entity.name%><%
+
+var thisEndpoint = association.fromEnd.entity !== entity ? association.toEnd : association.fromEnd;
+ var thisEndpointClassName = pascalCase(thisEndpoint.entity.name);
+ var thisEndpointMultiplicity = association.fromEnd.entity === entity
+ ? association.fromEndAssociationType
+ : association.toEndAssociationType;
+ 
+ var isThisEndpointArray = thisEndpointMultiplicity == EntityAssociationEndType.oneOrMany
+ || thisEndpointMultiplicity == EntityAssociationEndType.zeroOrMany
+ ? true
+ : false;
+ 
+ var relatedEndpoint = association.fromEnd.entity === entity ? association.toEnd : association.fromEnd;
+ var relatedEndpointClassName = pascalCase (relatedEndpoint.entity.name);
+ var relatedEndpointMultiplicity = association.fromEnd.entity === entity
+ ? association.toEndAssociationType
+ : association.fromEndAssociationType;
+  
+ var isRelatedEndpointArray = relatedEndpointMultiplicity == EntityAssociationEndType.oneOrMany
+ || relatedEndpointMultiplicity == EntityAssociationEndType.zeroOrMany 
+ ? true 
+ : false;
+ 
+ if (thisEndpoint.isNavigable) {
+  if (isRelatedEndpointArray) {
+ %>
+    foreach (<%-relatedEndpointClassName%> current<%-relatedEndpointClassName%> in value) {
+      if ( current<%-relatedEndpointClassName%>.<%-thisEndpointClassName%> != this)
+         current<%-relatedEndpointClassName%>.<%-thisEndpointClassName%> = this;
+    } <%
+  }
+  else if(isThisEndpointArray) {
+ %>    
+    Boolean isContained = false;
+    foreach (<%-thisEndpointClassName%> current<%-thisEndpointClassName%> in value.<%-thisEndpointClassName%>) {
+      if (current<%-thisEndpointClassName%> == this && isContained == false) {
+        isContained = true;
+      }
+    }
+    if (!isContained)
+      value.<%-thisEndpointClassName%>.Add(this); <%
+      }
+  else {
+  %>
+    if(value.<%-thisEndpointClassName%> != this)
+      value.<%-thisEndpointClassName%> = this; <% 
+      }
+  }
+  %>
+    #endregion

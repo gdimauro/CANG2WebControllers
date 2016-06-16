@@ -1,0 +1,217 @@
+{
+  "type": "task",
+  "name": "ShoppingCart",
+  "namespace": "NG2Sample.Commerce.ShoppingCart",
+  "description": "$$applicationdescription$$",
+  "domain-ref": "repo/commerce/ng2sample-commerce-domain-repo.json",
+  "operations": [
+    {
+      "type": "HTTP-GET",
+      "name": "getProducts",
+      "parameters": [
+        {
+          "direction": "IN",
+          "type": "string",
+          "name": "Id",
+          "description": "the product id"
+        },
+        {
+          "direction": "RETVAL",
+          "type": "ProductBrowse",
+          "name": "ProductBrowse",
+          "description": "Products",
+          "isArray": true
+        }
+      ]
+    },
+    //{
+    //  "type": "HTTP-GET",
+    //  "name": "getProdottiForBlueNext",
+    //  "parameters": [
+    //    {
+    //      "direction": "IN",
+    //      "type": "string",
+    //      "name": "Id",
+    //      "description": "the product id"
+    //    },
+    //    {
+    //      "direction": "RETVAL",
+    //      "type": "ProductBrowseBlueNext",
+    //      "name": "ProductBrowseBlueNext",
+    //      "description": "Products",
+    //      "isArray": true
+    //    }
+    //  ]
+    //},
+    {
+      "type": "HTTP-GET",
+      "name": "getPipperi",
+      "parameters": [
+        {
+          "direction": "IN",
+          "type": "string",
+          "name": "Id",
+          "description": "the product id"
+        },
+        {
+          "direction": "RETVAL",
+          "type": "ProductBrowse",
+          "name": "ProductBrowse",
+          "description": "Products",
+          "isArray": true
+        }
+      ]
+    },
+    {
+      "type": "HTTP-GET",
+      "name": "getOrderProducts",
+      "parameters": [
+        {
+          "direction": "IN",
+          "type": "string",
+          "name": "Id",
+          "description": "the product id"
+        },
+        {
+          "direction": "RETVAL",
+          "type": "ProductBrowse",
+          "name": "ProductBrowse",
+          "description": "Products",
+          "isArray": true
+        }
+      ]
+    },
+    {
+      "type": "HTTP-GET",
+      "name": "getProductsByName",
+      "parameters": [
+        {
+          "direction": "IN",
+          "type": "string",
+          "name": "name",
+          "description": "the name of the products"
+        },
+        {
+          "direction": "RETVAL",
+          "type": "ProductBrowse",
+          "name": "ProductBrowse",
+          "description": "Restituisce conflitti",
+          "isArray": true
+        }
+      ]
+    },
+    {
+      "type": "HTTP-GET",
+      "name": "getProductsByVendorExtended",
+      "parameters": [
+        {
+          "direction": "IN",
+          "type": "string",
+          "name": "vendorName",
+          "description": "the name of vendor"
+        },
+        {
+          "direction": "RETVAL",
+          "type": "ProductBrowse",
+          "name": "ProductBrowse",
+          "description": "Restituisce prodotti per vendor",
+          "isArray": true
+        }
+      ]
+    },
+    {
+      "type": "HTTP-GET",
+      "name": "getProductsByBestSell",
+      "parameters": [
+        {
+          "direction": "IN",
+          "type": "string",
+          "name": "sellFactor",
+          "description": "the sell factor of vendor"
+        },
+        {
+          "direction": "RETVAL",
+          "type": "ProductBrowse",
+          "name": "ProductBrowse",
+          "description": "Restituisce prodotti per vendor",
+          "isArray": true
+        }
+      ]
+    },
+    {
+      "type": "HTTP-GET",
+      "name": "getProdotti",
+      "parameters": [
+        {
+          "direction": "IN",
+          "type": "string",
+          "name": "sellFactor",
+          "description": "the sell factor of vendor"
+        },
+        {
+          "direction": "RETVAL",
+          "type": "ProductBrowse",
+          "name": "ProductBrowse",
+          "description": "Restituisce prodotti per vendor",
+          "isArray": true
+        }
+      ]
+    }
+  ],
+  "includes": [
+    {
+      "path": "test/fixtures/shoppingcart-xmi.xml",
+      "type": "XMI-UML"
+    }
+  ],
+  "entities": [
+    {
+      "type": "enum",
+      "name": "Status",
+      "description": "State of procedure",
+      "enumeratorList": [
+        {
+          "name": "Started",
+          "description": "Procedure started",
+          "value": 1
+        },
+        {
+          "name": "Stopped",
+          "description": "Procedure stopped"
+        },
+        {
+          "name": "Finished",
+          "description": "Procedure finished"
+        }
+      ]
+    },
+    {
+      "type": "entity",
+      "name": "ShoppingCartWebUser",
+      "description": "$$entity::ShoppingCartWebUser$$",
+      "inherits": {
+        "ancestor": "WebUser"
+      },
+      "fields": [
+        {
+          "name": "Id",
+          "description": "$$entity::ShoppingCartWebUser::Id$$",
+          "isKey": true,
+          "type": "string"
+        },
+        {
+          "name": "UserId",
+          "description": "$$entity::ShoppingCartWebUser::UserId$$",
+          "isKey": true,
+          "type": "string"
+        },
+        {
+          "name": "Status",
+          "description": "The status of the shoppingcart web user entity",
+          "isKey": false,
+          "type": "Status"
+        }
+      ]
+    }
+  ]
+}

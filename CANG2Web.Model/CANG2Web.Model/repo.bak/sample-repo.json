@@ -1,0 +1,38 @@
+﻿{
+  "type": "application",
+  "name": "NG2Sample",
+  "description": "$$applicationdescription$$",
+  "entities": [
+    /******************
+      BASE ENTITY
+      ******************/
+    {
+      "type": "entity",
+      "name": "Base",
+      "description": "$$baseentity$$",
+      "fields": [
+        // id
+        {
+          "name": "id",
+          "description": "$$baseentity::id$$",
+          "isKey": true,
+          "type": "uuid",
+          "annotations": [
+            {
+              "id": "001",
+              "key": "key001",
+              "value": "valueOfKey001",
+              "description": "$$baseentity::id::key001$$"
+            },
+            {
+              "id": "002",
+              "key": "key002",
+              "value": "valueOfKey002",
+              "description": "$$baseentity::id::key002$$"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

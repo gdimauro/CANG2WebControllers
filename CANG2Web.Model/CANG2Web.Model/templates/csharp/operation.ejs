@@ -1,0 +1,11 @@
+<%
+  function getRetval(operations) {
+    return operations.parameters.filter( function(i) { return i.direction == 3 })[0];
+  }
+  var retval = getRetval(operation);
+  // debugger;
+  var retvalString = retval.isArray ? 'IEnumerable<' + typeOf(retval.type) + '>' : retval.type ? typeOf(retval.type) : 'void';
+%>
+    [HttpGet]
+    [ActionName("<%- operation.name %>")]
+    public abstract <%-retvalString%> <%- pascalCase(operation.name) %>();

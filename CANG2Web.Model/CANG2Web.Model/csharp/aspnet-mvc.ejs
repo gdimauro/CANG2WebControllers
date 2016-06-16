@@ -1,0 +1,7 @@
+<%/* template: entities.ejs */
+// console.log('*** Template: aspnet-mvc.ejs');
+// debugger;
+model.Applications.forEach(function(application) {
+  // console.log('*** APPLICATION: ' + application.name);
+%><%- render('application.ejs', { model: application }) %><%
+});%>

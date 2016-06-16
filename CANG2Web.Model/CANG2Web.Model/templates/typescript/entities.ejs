@@ -1,0 +1,31 @@
+<%/* template: entities.ejs */
+%>/*****************************************************\
+* THIS FILE HAS BEEN GENERATED AUOMATICALLY           *
+* don't change please                                 *
+\*****************************************************/
+// #region ENUMERATIONS<%
+Enumerations().forEach( function(entity) {%><%-
+render('doc/class.ejs', { entity: entity })
+%>
+
+export enum <%- entity.name %> {<%-
+  post(entity.template || "enum-list.ejs", { entity: entity }) %>
+}<%})
+%>
+// #endregion
+
+// #region ENTITIES <%
+Entities().forEach( function(entity) {
+%><%-
+render('doc/class.ejs', { entity: entity })
+%>
+
+<%- entity.isSealed ? '// @isSealed' : '' %>
+export <%- ((entity.isAbstract || (entity.operations && entity.operations.length)) ? 'abstract ' : '')%>class <%- entity.name %><% if(entity.ancestor) {%> extends <%-entity.ancestor.name%><%
+}%> {<%-
+  post(entity.template || "entity.ejs", { entity: entity })
+  %>
+}<% 
+});
+%>
+// #endregion

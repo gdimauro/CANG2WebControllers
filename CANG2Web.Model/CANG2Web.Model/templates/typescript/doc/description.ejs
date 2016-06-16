@@ -1,0 +1,7 @@
+<%
+//debugger;
+if (entity.hasKey('description')) {
+%>
+<%-repeatChar(indentation)%> * <%-entity.getAnnotationByKey('description').value%>
+<%  
+}%>

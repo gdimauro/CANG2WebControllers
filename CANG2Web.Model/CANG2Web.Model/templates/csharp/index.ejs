@@ -1,0 +1,12 @@
+<%
+// debugger;
+if (model instanceof __model__.Domain) {
+  %><%-render('domain.ejs')%><%
+} else if (model instanceof __model__.Task) {
+  %><%-render('task.ejs')%><%
+} else if(model instanceof __model__.Application) {
+  %><%-render('application.ejs')%><%
+} else if(model) {
+  %><%-render('aspnet-mvc.ejs')%><%
+}
+%>

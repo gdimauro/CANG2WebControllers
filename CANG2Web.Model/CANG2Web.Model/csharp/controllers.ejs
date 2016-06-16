@@ -1,0 +1,41 @@
+<%
+// console.log('*** Template: operation.ejs');
+//  debugger;
+var __ns__ = model.namespace;
+var __name__ = pascalCase(model.name);
+var __route__ = model.namespace.replace(/\./g, '/').toLowerCase();
+if (model instanceof __model__.Application) {
+  __ns__ = model.namespace;
+} else if (model instanceof __model__.Domain) {
+  __ns__ = model.namespace;
+} else if (model instanceof __model__.Task) {
+  __ns__ = model.namespace;
+}
+%><%-render('file-disclaimer-writeonly.ejs')%>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Http;
+
+namespace <%- __ns__ %>.Controllers
+{
+  [Route("api/<%- __route__ %>/{action}")]
+  public partial class <%- __name__ %>Controller : Base<%- __name__ %>Controller
+  {
+    // don't implement here your virtual methods. Create your own partial class instead.
+  }
+
+  public abstract class Base<%- __name__ %>Controller : ApiController
+  {
+    public Base<%- __name__ %>Controller()
+    {
+      System.Diagnostics.Debug.WriteLine("<%- __name__ %>Controller");
+    }
+    
+    #region operation webapi stubs
+    <%model.operations.forEach(function(iOperation) {
+%><%-render('operation.ejs', { model: model, operation: iOperation})%><%
+    })%>
+    #endregion
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "type": "domain",
+  "name": "Commerce",
+  "namespace": "NG2Sample.Commerce",
+  "description": "$$applicationdescription$$",
+  "application-ref": "repo/ng2sample-application-repo.json",
+  "entities": [
+    /******************
+      BASE ENTITY
+      ******************/
+    {
+      "type": "entity",
+      "name": "Base",
+      "description": "$$baseentity$$",
+      "fields": [
+        // id
+        {
+          "name": "id",
+          "description": "$$baseentity::id$$",
+          "isKey": true,
+          "type": "uuid",
+          "annotations": [
+            {
+              "id": "001",
+              "key": "key001",
+              "value": "valueOfKey001",
+              "description": "$$baseentity::id::key001$$"
+            },
+            {
+              "id": "002",
+              "key": "key002",
+              "value": "valueOfKey002",
+              "description": "$$baseentity::id::key002$$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "enum",
+      "name": "State",
+      "description": "$$enumState$$",
+      "enumeratorList": [
+        {
+          "name": "Start",
+          "value": 1,
+          "description": "$$enumState::Start$$"
+        },
+        {
+          "name": "Pause",
+          "value": 2,
+          "description": "$$enumState::Pause$$"
+        },
+        {
+          "name": "Stop",
+          "value": 3,
+          "description": "$$enumState::Stop$$"
+        }
+      ]
+    },
+    {
+      "type": "entity",
+      "name": "ProductBrowse",
+      "description": "$$entityProductBase$$",
+      "inherits": {
+        "ancestor": "Base"
+      },
+      "fields": [
+        {
+          "name": "Id",
+          "description": "$$entityProduct::Id$$",
+          "isKey": true,
+          "type": "numeric"
+        },
+        {
+          "name": "Name",
+          "description": "$$entityProduct::Name$$",
+          "type": "string"
+        },
+        {
+          "name": "Description",
+          "type": "string",
+          "description": "$$entityProduct::Description$$"
+        },
+        {
+          "name": "ImageUrl",
+          "type": "string",
+          "description": "$$entityProduct::ImageUrl$$"
+        }
+      ]
+    },
+    //{
+    //  "type": "entity",
+    //  "name": "ProductBrowseBlueNext",
+    //  "description": "$$entityProductBase$$",
+    //  "inherits": {
+    //    "ancestor": "ProductBrowse"
+    //  },
+    //  "fields": [
+    //    {
+    //      "name": "FieldBlueNext",
+    //      "description": "$$entityProduct::Name$$",
+    //      "type": "string"
+    //    }
+    //  ]
+    //},
+    {
+      "type": "entity",
+      "name": "Vehicle",
+      "description": "$$entityVehicle::Vehicle$$",
+      "inherits": {
+        "ancestor": "Base"
+      },
+      "fields": [
+        {
+          "name": "Id",
+          "description": "$$entityVehicle::Id$$",
+          "isKey": true,
+          "type": "numeric"
+        },
+        {
+          "name": "Name",
+          "description": "$$entityVehicle::Name$$",
+          "type": "string"
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "description": "$$entityVehicle::Type$$"
+        }
+      ]
+    },
+    /*********
+      Person entity
+      *********/
+    {
+      "type": "entity",
+      "name": "Person",
+      "description": "$$entityPerson$$",
+      "template": "pippo.ejs",
+      "inherits": {
+        "ancestor": "Base"
+      },
+      "fields": [
+        // name
+        {
+          "name": "Name",
+          "description": "Name of person",
+          "type": "string"
+        },
+        // lastname
+        {
+          "name": "Lastname",
+          "description": "Lastname of person",
+          "type": "string"
+        },
+        // jobs
+        {
+          "name": "Jobs",
+          "description": "Job of person",
+          "isArray": true, // collection
+          "type": "Job"
+        }
+      ]
+    },
+    /*********
+      Job entity
+      *********/
+    {
+      "type": "entity",
+      "name": "Job",
+      "description": "$$entityJob$$",
+      "inherits": {
+        "ancestor": "Base"
+      },
+      "fields": [
+        // name
+        {
+          "name": "Name",
+          "description": "Name of person",
+          "type": "string"
+        },
+        // lastname
+        {
+          "name": "Lastname",
+          "description": "Lastname of person",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "type": "entity",
+      "description": "aklsdjflkasdf",
+      "name": "Pippo",
+      "inherits": {
+        "ancestor": "Job"
+      },
+      "fields": [
+        {
+          "isKey": true,
+          "name": "Id",
+          "description": "sadkfjlalksdf",
+          "type": "string"
+        }
+      ]
+    },
+    /*********
+      Associations
+      *********/
+    {
+      "type": "association",
+      "name": "Vehicle_Person",
+      "description": "$$associatioVehicle_Person$$",
+      "fromEnd": {
+        "name": "Person",
+        "type": "zeroOrOne",
+        "description": "$$associatioVehicle_Person::Person$$"
+      },
+      "toEnd": {
+        "name": "Vehicle",
+        "type": "zeroOrMany",
+        "description": "$$associatioVehicle_Person::Vehicle$$"
+      }
+    },
+    {
+      "type": "association",
+      "name": "JobsOfPerson",
+      "description": "$$associationJobsOfPerson$$",
+      "fromEnd": {
+        "name": "Person",
+        "type": "zeroOrOne",
+        "description": "$$associationJobsOfPerson::Person$$"
+      },
+      "toEnd": {
+        "name": "Job",
+        "type": "oneOrMany",
+        "description": "$$associationJobsOfPerson::Job$$"
+      }
+    }
+  ]
+}

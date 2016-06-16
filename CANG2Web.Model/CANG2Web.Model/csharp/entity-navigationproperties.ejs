@@ -1,0 +1,51 @@
+<%/* template: entityNavigationProperties.ejs */
+%>  #region NAVIGATION PROPERTIES <%-entity.name%><%
+
+  /**
+  * The type of the association of an endpoint connected to an entity
+  */
+  var EntityAssociationEndType = {
+  zeroOrOne: 1,
+  one: 2,
+  oneOrMany: 3,
+  zeroOrMany: 4
+  };
+
+entity.associations.forEach(function(association) {
+  
+  var relatedEndpoint = association.fromEnd.entity === entity ? association.toEnd : association.fromEnd;
+  var relatedEndpointMultiplicity = association.fromEnd.entity === entity
+  ? association.toEndAssociationType
+  : association.fromEndAssociationType;
+  var relatedEndpointName = camelCase(relatedEndpoint.name);
+  var relatedEndpointClassName = pascalCase(relatedEndpoint.entity.name);
+  var relatedEndpointType = relatedEndpoint.entity.name;
+  var isRelatedEndpointArray = relatedEndpointMultiplicity == EntityAssociationEndType.oneOrMany
+  || relatedEndpointMultiplicity == EntityAssociationEndType.zeroOrMany 
+  ? true 
+  : false;
+  
+  if(relatedEndpoint.isNavigable)
+  {
+  %><%
+  if (!isRelatedEndpointArray) {
+  %>
+  public <%-relatedEndpointClassName%> <%-relatedEndpointClassName%> {<% 
+  } %>
+  <% if(isRelatedEndpointArray){
+  %>
+  public List<<%-relatedEndpointClassName%>> <%-relatedEndpointClassName%> {<%
+  }%>
+    // get <%- association.name %>
+    get { return _<%-relatedEndpointName%>; }
+    // set <%- association.name %>
+    set { _<%-relatedEndpointName%> = value;
+    <%- render("entity-fixups.ejs", {association: association, entity:entity, EntityAssociationEndType: EntityAssociationEndType}) %>
+    }
+  }
+  <%
+  }   
+})
+%>
+
+  #endregion

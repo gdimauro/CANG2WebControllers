@@ -1,0 +1,17 @@
+<%/* template: entityProperties.ejs */
+%>  // #region PROPERTIES <%-entity.name%><%
+entity.attributes.forEach( function(attribute) {
+  var attributeName = pascalCase(attribute.name);
+  if (attributeName && !attribute.isStatic) {
+%>
+<%-render('doc/navigationProperty.ejs', {params: { property: 'get', attribute: attribute }} )%>
+  <%-attribute.visibility%> get <%-attributeName%>(): <%- typeOf(attribute.type, attribute.umlType) + (attribute.isArray ? '[]' : '') %> { return this._<%-camelCase(attributeName)%>; }<%
+  if (!attribute.isReadOnly) { %>
+<%-render('doc/navigationProperty.ejs', {params: { property: 'set', attribute: attribute }} )%>
+  <%-attribute.visibility%> set <%-attributeName%>(value: <%- typeOf(attribute.type, attribute.umlType) + (attribute.isArray ? '[]' : '') %>) { this._<%-camelCase(attributeName)%> = value; }<%
+  }
+  }
+})
+%>
+
+  // #endregion

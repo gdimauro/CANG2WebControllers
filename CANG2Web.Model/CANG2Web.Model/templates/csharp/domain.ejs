@@ -1,0 +1,8 @@
+<%
+// console.log('Template: domain.ejs');
+%><%-render('model.ejs', { model: model })%><%
+model.Tasks.forEach(function(task) {
+  // console.log('*** TASK: ' + task.name);
+%><%- render('task.ejs', {model: task}) %><%
+});
+%>

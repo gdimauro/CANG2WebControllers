@@ -1,0 +1,27 @@
+<%/* template: entityProperties.ejs */
+%>    #region PROPERTIES <%-entity.name%><%
+entity.attributes.forEach( function(attribute) {
+  var attributeName = pascalCase(attribute.name);
+  if (attributeName && !attribute.isStatic) {
+  %>
+  <%-render('doc/property.ejs', {params: { property: 'get/set', attribute: attribute }})%><%
+    if (!attribute.isArray) {
+    %>
+    <%-attribute.visibility%> <%- typeOf(attribute.type, attribute.umlType)%> <%-pascalCase(attribute.name)%> { <%
+    }
+    if (attribute.isArray) {
+    %>
+    <%-attribute.visibility%> List<<%- typeOf(attribute.type, attribute.umlType)%>> <%-pascalCase(attribute.name)%> { <%
+    }
+    %>
+      get { return this._<%- camelCase(attribute.name) %>; }
+      <% if (!attribute.isReadOnly) { %>
+      set { this._<%- camelCase(attribute.name) %> = value; } <%
+      }
+      %>
+      
+    }<%
+  }
+})
+%>
+    #endregion

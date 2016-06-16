@@ -1,0 +1,9 @@
+<%/* template: doc/class.ejs */
+var hasDescription = entity.hasKey('description');
+
+if(hasDescription) {
+%>/**<%-render('doc/description.ejs', entity)%><%
+if (entity.hasKey('example')) {
+%> * @example
+ * // <%-entity.getAnnotationByKey('example').value%><%  
+}%> */<%}%>

@@ -1,0 +1,39 @@
+<%
+var __namespace__ = model.namespace;
+// console.log('*** data-model.ejs template')
+%><%-render('file-disclaimer-writeonly.ejs')%>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Http;
+
+namespace <%- __namespace__ %>
+{
+  #region ENUMERATIONS
+<%
+model.enumerations.forEach( function(i)
+{%>
+<%-render('doc/class.ejs', { entity: i })%>
+  public enum <%- i.name %>
+  {<%-
+  post(i.template || "enum-list.ejs", { entity: i }) %>
+  }
+<%})
+%>
+  #endregion
+
+  #region ENTITIES
+<%
+model.entities.forEach( function(entity) {
+%>
+<%//< %=outputToFile(entity.name+'.cs') %>
+<%- render('doc/class.ejs', { entity: entity }) %>
+  <%- entity.isSealed ? '// @isSealed' : '' %>
+  public<%- (entity.isAbstract || (entity.operations.length > 0)) ? ' abstract' : ''%> partial class <%- entity.name %><% if(entity.ancestor){%> : <%-entity.ancestor.name%><%}%>
+  {
+<%- post(entity.template || "entity.ejs", { entity: entity }) %>
+<%- render(entity.template || "operations.ejs", { entity: entity }) %>
+  }
+<% }); %>
+  #endregion
+}

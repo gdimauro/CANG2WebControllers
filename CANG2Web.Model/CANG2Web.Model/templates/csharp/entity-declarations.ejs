@@ -1,0 +1,18 @@
+<% /* entityDeclarations.ejs */
+%>    #region FIELD DECLARATIONS <%-entity.name%><%
+entity.attributes.forEach( function(attribute) {
+%><%
+    if(!attribute.isArray) {
+        
+    %>
+    
+    private <%-(attribute.isStatic ? 'static' : '')%> <%- typeOf(attribute.type, attribute.umlType) %> <%-(attribute.isStatic ? '__' : '_')%><%- camelCase(attribute.name) %>;<%
+    } 
+    %><%
+    if(attribute.isArray) {
+    %>
+    private <%-(attribute.isStatic ? 'static' : '')%> List<<%- typeOf(attribute.type, attribute.umlType)%>> <%-(attribute.isStatic ? '__' : '_')%><%- camelCase(attribute.name) %>;<%
+    }
+    })
+%>
+    #endregion

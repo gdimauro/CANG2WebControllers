@@ -1,0 +1,25 @@
+<%/* template: entity-operations.ejs */
+if(entity.operations.length)
+  entity.isAbstract = true;
+// console.log(entity.operations);
+%>  // #region FIELD OPERATIONS <%-entity.name%> <% 
+  for (var i = 0; i < entity.operations.length; i++) {
+  %>
+  public abstract <%-entity.operations[i].name%>(<%
+    var retType = entity.operations[i].parameters[0].type;
+    for (var k = 1; k < entity.operations[i].parameters.length; k++) {
+      var currentParameter = entity.operations[i].parameters[k];
+      var type = currentParameter.type;
+      var operationName = currentParameter.name;
+      %><%-operationName ? operationName : ('p'+k) %>: <%-typeOf(type) + (currentParameter.isArray ? '[]' : '')%><%
+      if (k < entity.operations[i].parameters.length-1 ) {
+      %><%-
+      ', '
+    %><%
+    }
+    }
+    %>): <%-typeOf(retType) + (entity.operations[i].parameters[0].isArray ? '[]' : '')
+    %>;<%
+    }%>
+
+  // #endregion

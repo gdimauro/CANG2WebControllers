@@ -1,0 +1,10 @@
+<%
+// console.log('*** Template: operations.ejs');
+// debugger;
+%>
+    #region methods
+    <%entity.operations.forEach(function(iOperation) {
+%><%-render('operation.ejs', { entity: entity, operation: iOperation})%><%
+    })%>
+    #endregion
+

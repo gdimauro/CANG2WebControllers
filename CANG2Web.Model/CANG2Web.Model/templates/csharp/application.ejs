@@ -1,0 +1,8 @@
+<%
+// console.log('Template: application.ejs');
+%><%- render('model.ejs', { model: model }) %><%
+model.Domains.forEach(function(domain) {
+  // console.log('*** DOMAIN: ' + domain.name);
+%><%- render('domain.ejs', {model: domain}) %><%
+});
+%>

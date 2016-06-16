@@ -1,0 +1,54 @@
+<%/* template: entity-associations.ejs */
+%>  // #region FIELD ASSOCIATIONS <%-entity.name%><%
+  
+  /**
+  * The type of the association of an endpoint connected to an entity
+  */
+  var EntityAssociationEndType = {
+  zeroOrOne: 1,
+  one: 2,
+  oneOrMany: 3,
+  zeroOrMany: 4
+  };
+  
+entity.associations.forEach(function(association) {
+  
+  var relatedEndpoint = association.fromEnd.entity === entity ? association.toEnd : association.fromEnd;
+  var relatedEndpointMultiplicity = association.fromEnd.entity === entity
+  ? association.toEndAssociationType : association.fromEndAssociationType;
+  
+  var relatedEndpointName = camelCase(relatedEndpoint.name);
+  var relatedEndpointType = relatedEndpoint.entity.name;
+  var isRelatedEndpointArray = relatedEndpointMultiplicity == EntityAssociationEndType.oneOrMany
+  || relatedEndpointMultiplicity == EntityAssociationEndType.zeroOrMany 
+  ? true
+  : false;
+  
+  if(relatedEndpoint.isNavigable) {
+%>
+
+  // association: <%- association.name %>
+  private _<%- relatedEndpointName %>: <%- relatedEndpointType + ( isRelatedEndpointArray ? '[]' : '') %>;<%
+  if (isRelatedEndpointArray) {
+    %>
+
+  // Add <%- association.name %>
+  public Add<%-pascalCase(relatedEndpointType)%>(<%-relatedEndpointName%>: <%- relatedEndpointType%>): <%-entity.name%> {
+    this._<%-relatedEndpointName%>.push(<%-relatedEndpointName%>);
+    return this;
+  }
+
+  // Remove <%- association.name %>
+  public Remove<%-pascalCase(relatedEndpointType)%>(<%-relatedEndpointName%>: <%- relatedEndpointType%>): <%-entity.name%> {
+    let index = this._<%-relatedEndpointName%>.indexOf(<%-relatedEndpointName%>);
+    if (index > -1) {
+      this._<%-relatedEndpointName%>.splice(index,1);
+    }
+    return this;
+  }<%
+    }
+    %><%
+  }   
+})
+%>
+  // #endregion

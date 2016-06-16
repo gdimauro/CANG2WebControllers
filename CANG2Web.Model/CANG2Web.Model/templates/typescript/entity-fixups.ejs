@@ -1,0 +1,50 @@
+<%/* template: entityFixup.ejs */
+%>  // #region FIXUPS  <%-entity.name%><%
+ 
+ var thisEndpoint = association.fromEnd.entity !== entity ? association.toEnd : association.fromEnd;
+ var thisEndpointClassName = pascalCase(thisEndpoint.entity.name);
+ var thisEndpointMultiplicity = association.fromEnd.entity === entity
+ ? association.fromEndAssociationType
+ : association.toEndAssociationType;
+ 
+ var isThisEndpointArray = thisEndpointMultiplicity == EntityAssociationEndType.oneOrMany
+ || thisEndpointMultiplicity == EntityAssociationEndType.zeroOrMany
+ ? true
+ : false;
+ 
+ var relatedEndpointMultiplicity = association.fromEnd.entity === entity
+ ? association.toEndAssociationType
+ : association.fromEndAssociationType;
+  
+ var isRelatedEndpointArray = relatedEndpointMultiplicity == EntityAssociationEndType.oneOrMany
+ || relatedEndpointMultiplicity == EntityAssociationEndType.zeroOrMany 
+ ? true 
+ : false;
+ 
+ if (thisEndpoint.isNavigable) {
+  if (isRelatedEndpointArray) {
+ %>
+    value.forEach(element => {
+      if (element.<%-thisEndpointClassName%> !== this)
+        element.<%-thisEndpointClassName%> = this;
+    });<%
+  }
+  else if(isThisEndpointArray) {
+ %>    
+    let isContained: Boolean = false;
+    value.<%-thisEndpointClassName%>.forEach(element => {
+      if (element === this && isContained === false)
+        isContained = true;
+    });
+    if(!isContained)
+      value.<%-thisEndpointClassName%>.push(this);<%
+      }
+  else {
+  %>
+    if(value.<%-thisEndpointClassName%> !== this)
+      value.<%-thisEndpointClassName%> = this;<% 
+      }
+  }
+  %>
+
+    // #endregion

@@ -1,0 +1,10 @@
+<%/* template: enum-list.ejs */
+function getValue(attribute) {
+  var annotation = attribute.getAnnotationByKey('value');
+  return annotation && annotation.value;
+}
+%><%
+forEach( entity.attributes, function(attribute, isLast) {%>
+    <%-pascalCase(attribute.name)%><%-getValue(attribute) ? ' = ' + getValue(attribute) : '' %><%-isLast ? "" : ","%> // <%- attribute.getAnnotationByKey('description').value %><%
+  });
+%>

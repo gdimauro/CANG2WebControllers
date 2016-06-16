@@ -1,0 +1,11 @@
+<%/* template: entityDeclarations.ejs */
+%>
+
+  // #region FIELD DECLARATIONS <%-entity.name%><%
+
+entity.attributes.forEach( function(attribute) {
+%>
+  private <%-(attribute.isStatic ? 'static' : '')%> <%-(attribute.isStatic ? '__' : '_')%><%-attribute.name%>: <%- typeOf(attribute.type, attribute.umlType) + (attribute.isArray ? '[]' : '') %>;<%})
+%>
+
+  // #endregion

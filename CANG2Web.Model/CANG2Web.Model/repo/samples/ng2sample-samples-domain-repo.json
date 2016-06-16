@@ -1,0 +1,7 @@
+{
+  "type": "domain",
+  "name": "Samples",
+  "namespace": "NG2Sample.Samples",
+  "description": "$$applicationdescription$$",
+  "application-ref": "repo/ng2sample-application-repo.json"
+}
